@@ -28,7 +28,8 @@ export function CharacterCounter({
   function onTextChange(text: string) {
     const newStats = { ...stats };
     newStats.characterCount = text.length;
-    newStats.wordCount = text.length && text.split(' ').length;
+    // newStats.wordCount = text.length && text.split(' ').length;    // Simplistic word counting, doesn't ignore multiple spaces.
+    newStats.wordCount = text.split(' ').filter(word => word.length).length; // Filter out any zero length words caused by multiple spaces
     newStats.readingTime = getTime();
     setStats(newStats);
     setTime(Date.now());

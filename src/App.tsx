@@ -10,7 +10,7 @@ import type { CharacterCounterProps } from './types';
 
 function App() {
   const charCount: CharacterCounterProps = {
-    minWords: 100,
+    minWords: 10,
     maxWords: 200,
     targetReadingTime: 2
   };
