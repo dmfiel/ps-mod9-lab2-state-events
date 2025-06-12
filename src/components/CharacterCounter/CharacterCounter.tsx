@@ -4,6 +4,10 @@ import { StatsDisplay } from '../StatsDisplay/StatsDisplay';
 import { TextInput } from '../TextInput/TextInput';
 import { ProgressBar } from './ProgressBar';
 
+// This CharacterCounter component wraps around the text input and
+// stat display controls, passing in their props and managing the
+// event handler to calculate statistics.
+
 export function CharacterCounter({
   minWords,
   maxWords,

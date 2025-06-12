@@ -1,5 +1,8 @@
 import type { TextInputProps } from '../../types';
 
+// This input text box is used for the creator to write their content.
+// Pre-written content could also be pasted here for ease of use.
+
 export function TextInput({
   onTextChange,
   placeholder = 'Start typing...',

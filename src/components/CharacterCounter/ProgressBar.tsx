@@ -4,6 +4,11 @@ export interface ProgressBarProps {
   currentVal: number;
 }
 
+// This progress bar provides easy, visual feedback for completion percentage
+// along with red/green status of the correct word count range.
+// The component takes the size of its enclosing element, so sizing is set
+// by the parent component.
+
 export function ProgressBar({ minVal, maxVal, currentVal }: ProgressBarProps) {
   if (!minVal || !maxVal) return;
   const donePct = Math.min((currentVal / maxVal) * 100, 100);

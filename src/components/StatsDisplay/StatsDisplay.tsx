@@ -1,5 +1,9 @@
 import type { StatsDisplayProps } from '../../types';
 
+// This display shows the statistics calculated from the content's text.
+// Besides numeric stats, the display is also updated with red/green styling
+// which shows when the creator's input is within the correct range of words.
+
 export function StatsDisplay({ stats, showReadingTime }: StatsDisplayProps) {
   function showTime(seconds: number): string {
     return (
