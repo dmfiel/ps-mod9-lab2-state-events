@@ -7,7 +7,9 @@ import type { StatsDisplayProps } from '../../types';
 export function StatsDisplay({ stats, showReadingTime }: StatsDisplayProps) {
   function showTime(seconds: number): string {
     return (
-      Math.floor(seconds / 60) +
+      Math.floor(seconds / 60 / 60) +
+      ':' +
+      (Math.floor(seconds / 60) % 60).toString().padStart(2, '0') +
       ':' +
       Math.floor(seconds % 60)
         .toString()
@@ -34,7 +36,7 @@ export function StatsDisplay({ stats, showReadingTime }: StatsDisplayProps) {
                   stats.wordCount < stats.minWords
                 ? 'text-red-500'
                 : 'text-green-500'
-            } text-2xl font-semibold     `}
+            } text-2xl font-semibold`}
           >
             {stats.wordCount}
           </p>
@@ -45,7 +47,15 @@ export function StatsDisplay({ stats, showReadingTime }: StatsDisplayProps) {
         {showReadingTime && (
           <div className="text-center">
             <p className="text-sm text-gray-500">Reading Time</p>
-            <p className="text-2xl font-semibold text-gray-700">
+            <p
+              className={`${
+                !stats.targetReadingTime
+                  ? 'text-gray-700'
+                  : stats.readingTime < stats.targetReadingTime
+                  ? 'text-red-500'
+                  : 'text-green-500'
+              } text-2xl font-semibold`}
+            >
               {showTime(stats.readingTime)}
             </p>
           </div>

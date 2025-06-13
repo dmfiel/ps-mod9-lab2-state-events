@@ -12,7 +12,7 @@ function App() {
   const charCount: CharacterCounterProps = {
     minWords: 10,
     maxWords: 200,
-    targetReadingTime: 2
+    targetReadingTime: 120 // time in seconds
   };
   return <CharacterCounter {...charCount} />;
 }
